@@ -2,8 +2,8 @@
 
 namespace Illuminate\Foundation\Auth;
 
-use App\Models\Country;
-use App\Models\Gender;
+use Author\Models\Country;
+use Author\Models\Gender;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;

@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Country;
+use Author\Models\Country;
 use Illuminate\Database\Seeder;
 
 class CountrySeeder extends Seeder

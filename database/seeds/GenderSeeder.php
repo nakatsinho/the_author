@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Gender;
+use Author\Models\Gender;
 use Illuminate\Database\Seeder;
 
 class GenderSeeder extends Seeder
