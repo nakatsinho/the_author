@@ -2,6 +2,8 @@
 
 namespace Illuminate\Foundation\Auth;
 
+use App\Models\Country;
+use App\Models\Gender;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
@@ -17,7 +19,9 @@ trait RegistersUsers
      */
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        $gender = Gender::pluck('name','id');
+        $country = Country::pluck('name','id');
+        return view('auth.register',compact('gender','country'));
     }
 
     /**
