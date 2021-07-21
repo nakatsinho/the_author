@@ -11,8 +11,11 @@
 |
 */
 
+use Author\Models\Category;
+
 Route::get('/', function () {
-    return view('home');
+    $caty = Category::all();
+    return view('home',compact('caty'));
 });
 
 Auth::routes();

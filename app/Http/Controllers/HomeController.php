@@ -2,6 +2,7 @@
 
 namespace Author\Http\Controllers;
 
+use Author\Models\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $caty = Category::all();
+        return view('home',compact('caty'));
     }
 }

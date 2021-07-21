@@ -2,7 +2,9 @@
 
 namespace Author\Http\Controllers;
 
+use Author\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -13,7 +15,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profile.index');
+            $users = User::all()->except(Auth::user()->id);
+            return view('profile.index',compact('users'));
     }
 
     /**
@@ -45,7 +48,8 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::where('id',$id)->first();
+        return view('profile.show',compact('user'));
     }
 
     /**

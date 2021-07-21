@@ -45,22 +45,22 @@
 	<title>{{ config('app.name', 'The Author') }}</title>
 
 	<!-- Bootstrap core CSS-->
-	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<link href="css/responsive.css" rel="stylesheet">
+	<link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+	<link href="{{asset('css/style.css') }}" rel="stylesheet">
+	<link href="{{asset('css/responsive.css')}}" rel="stylesheet">
 	<!-- Custom fonts for this template-->
-	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
 
 	<!-- Page level plugin CSS-->
-	<link rel="stylesheet" href="css/portfolio.css" type="text/css">
-	<link rel="stylesheet" href="css/dropdown.css" type="text/css">
-	<link rel="stylesheet" href="css/owlslider.css" type="text/css">
+	<link rel="stylesheet" href="{{asset('css/portfolio.css')}}" type="text/css">
+	<link rel="stylesheet" href="{{asset('css/dropdown.css')}}" type="text/css">
+	<link rel="stylesheet" href="{{asset('css/owlslider.css')}}" type="text/css">
 	<!-- Custom styles for this template-->
-	<link href="css/sb-admin.css" rel="stylesheet" type="text/css">
-	<link href="css/font-awesome.css" rel="stylesheet" type="text/css">
-	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="assets/owlcarousel/assets/owl.carousel.min.css">
-	<link rel="stylesheet" href="assets/owlcarousel/assets/owl.theme.default.min.css">
+	<link href="{{asset('css/sb-admin.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{asset('css/font-awesome.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="{{asset('assets/owlcarousel/assets/owl.carousel.min.css')}}">
+	<link rel="stylesheet" href="{{asset('assets/owlcarousel/assets/owl.theme.default.min.css')}}">
 
 </head>
 
@@ -82,28 +82,28 @@
 	</a>
 
 	<!-- Bootstrap core JavaScript-->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+	<script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 	<!-- Core plugin JavaScript-->
-	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 	<!-- Page level plugin JavaScript-->
-	<script src="vendor/chart.js/Chart.min.js"></script>
-	<script src="vendor/datatables/jquery.dataTables.js"></script>
-	<script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+	<script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
+	<script src="{{asset('vendor/datatables/jquery.dataTables.js')}}"></script>
+	<script src="{{asset('vendor/datatables/dataTables.bootstrap4.js')}}"></script>
 	<!-- Custom scripts for all pages-->
-	<script src="js/sb-admin.min.js"></script>
-	<script src="js/portfolio.js"></script>
-	<script src="js/you-listing.js"></script>
-	<script src="js/menurght.js"></script>
-	<script src="js/crausal1.js"></script>
-	<script src="js/dropdown.js"></script>
+	<script src="{{asset('js/sb-admin.min.js')}}"></script>
+	<script src="{{asset('js/portfolio.js')}}"></script>
+	<script src="{{asset('js/you-listing.js') }}"></script>
+	<script src="{{asset('js/menurght.js')}}"></script>
+	<script src="{{asset('js/crausal1.js')}}"></script>
+	<script src="{{asset('js/dropdown.js')}}"></script>
 	<!-- Demo scripts for this page-->
-	<script src="js/slick.min.js"></script>.
+	<script src="{{asset('js/slick.min.js')}}"></script>.
 	<!-- Assect scripts for this page-->
-	<script src="assets/vendors/jquery.min.js"></script>
-	<script src="assets/owlcarousel/owl.carousel.js"></script>
-	<script src="assets/vendors/highlight.js"></script>
-	<script src="assets/js/app.js"></script>
+	<script src="{{asset('assets/vendors/jquery.min.js')}}"></script>
+	<script src="{{asset('assets/owlcarousel/owl.carousel.js')}}"></script>
+	<script src="{{asset('assets/vendors/highlight.js')}}"></script>
+	<script src="{{asset('assets/js/app.js') }}"></script>
 
 </body>
 

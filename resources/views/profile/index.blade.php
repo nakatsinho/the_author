@@ -15,131 +15,25 @@
 							<input type="text" name="search" placeholder="Enter a keyword....">
 						</form>
 					</div>
-					<div class="col-md-3 col-xs-12 col-sm-6 p-left">
+					@foreach($users as $value)
+                    <div class="col-md-3 col-xs-12 col-sm-6 p-left">
 						<div class="mainbox">
 							<div class="imgbox">
-								<img src="images/product/01_liked_img.jpg" alt="">
+								<a href="{{ route('profile.show',$value->id) }}">
+                                <img src="images/product/01_liked_img.jpg" alt="">
+                                </a>
 							</div>
 							<div class="lefttext">
-								John Doe
-								<p>@johndoe</p>
+								{{$value->name}}
+								<p>{{$value->email}}</p>
 							</div>
 							<div class="righttext">
-								<a href="#">Like</a>
+								<a href="#">Share</a>
 							</div>
 							<div class="clearfix"></div>
 						</div>
 					</div>
-					<div class="col-md-3 col-xs-12 col-sm-6 ">
-						<div class="mainbox">
-							<div class="imgbox">
-								<img src="images/product/02_liked_img.jpg" alt="">
-							</div>
-							<div class="lefttext">
-								John Doe
-								<p>@johndoe</p>
-							</div>
-							<div class="righttext">
-								<a href="#">Like</a>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-12 col-sm-6 ">
-						<div class="mainbox">
-							<div class="imgbox">
-								<img src="images/product/03_liked_img.jpg" alt="">
-							</div>
-							<div class="lefttext">
-								John Doe
-								<p>@johndoe</p>
-							</div>
-							<div class="righttext">
-								<a href="#">Like</a>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-12 col-sm-6 p-right">
-						<div class="mainbox">
-							<div class="imgbox">
-								<img src="images/product/04_liked_img.jpg" alt="">
-							</div>
-							<div class="lefttext">
-								John Doe
-								<p>@johndoe</p>
-							</div>
-							<div class="righttext">
-								<a href="#">Like</a>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-12 col-sm-6 p-left">
-						<div class="mainbox">
-							<div class="imgbox">
-								<img src="images/product/05_liked_img.jpg" alt="">
-							</div>
-							<div class="lefttext">
-								John Doe
-								<p>@johndoe</p>
-							</div>
-							<div class="righttext">
-								<a href="#">Like</a>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-12 col-sm-6 ">
-						<div class="mainbox">
-							<div class="imgbox">
-								<img src="images/product/06_liked_img.jpg" alt="">
-							</div>
-							<div class="lefttext">
-								John Doe
-								<p>@johndoe</p>
-							</div>
-							<div class="righttext">
-								<a href="#">Like</a>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-
-					</div>
-					<div class="col-md-3 col-xs-12 col-sm-6 ">
-						<div class="mainbox">
-							<div class="imgbox">
-								<img src="images/product/01_liked_img.jpg" alt="">
-							</div>
-							<div class="lefttext">
-								John Doe
-								<p>@johndoe</p>
-							</div>
-							<div class="righttext">
-								<a href="#">Like</a>
-
-							</div>
-							<div class="clearfix"></div>
-						</div>
-
-					</div>
-					<div class="col-md-3 col-xs-12 col-sm-6 p-right">
-						<div class="mainbox">
-							<div class="imgbox">
-								<img src="images/product/02_liked_img.jpg" alt="">
-							</div>
-							<div class="lefttext">
-								John Doe
-								<p>@johndoe</p>
-							</div>
-							<div class="righttext">
-								<a href="#">Like</a>
-
-							</div>
-							<div class="clearfix"></div>
-						</div>
-
-					</div>
+                    @endforeach
 				</div>
 
 			</div>
@@ -158,26 +52,7 @@
 			<!--#Spiner-->
 
 			<!-- Sticky Footer -->
-			<footer class="sticky-footer col-md-12">
-				<div class="container my-auto">
-					<div class="copyright text-center my-auto">
-
-						<div class="footer-info">
-							<a href="#">About </a> |
-							<a href="#">Faq’s </a> |
-							<a href="#">Privacy</a>
-							<a href="#"> Advertise</a> |
-							<a href="#">Term & Conditions </a>
-							<a href="#">Sitemap </a>|
-							<a href="#">Tags </a>|
-							<a href="#">Blog</a>
-						</div>
-						<div class="copy-right">
-							<a target="_blank" href="https://www.templateshub.net">Templates Hub</a>
-						</div>
-					</div>
-				</div>
-			</footer>
+			@include('layouts.footer')
 
 		</div>
 @endsection
