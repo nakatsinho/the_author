@@ -2,6 +2,7 @@
 
 namespace Author\Http\Controllers;
 
+use Author\Models\User;
 use Illuminate\Http\Request;
 
 class RegisterStep2Controller extends Controller
@@ -73,7 +74,21 @@ class RegisterStep2Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $formInput = $request->except('image');
+
+        $image = $request->image;
+
+        if(!empty($image))
+        {
+            $imageName = $image->getClientOriginalName();
+            $image->move('images/profile', $imageName);
+        }
+        $formInput['image'] = $imageName;
+        $formInput['number'] = $request->number;
+
+        User::findOrFail($id)->update($formInput);
+
+        return redirect()->route('home');
     }
 
     /**

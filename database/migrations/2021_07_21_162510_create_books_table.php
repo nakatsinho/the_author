@@ -20,6 +20,7 @@ class CreateBooksTable extends Migration
             $table->string('isbn')->nullable();
             $table->string('company')->nullable();
             $table->string('cover')->nullable();
+            $table->integer('category_id')->nullable();
             $table->timestamps();
         });
     }

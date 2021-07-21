@@ -2,7 +2,7 @@
 
 namespace Author\Http\Controllers\Auth;
 
-use Author\User;
+use Author\Models\User;
 use Author\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/step2-register';
+    protected $redirectTo = '/step2';
 
     /**
      * Create a new controller instance.
@@ -50,8 +50,11 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'bith' => ['required', 'date'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'gender_id' => ['required'],
+            'country_id' => ['required'],
         ]);
     }
 
@@ -66,6 +69,9 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'bith' => $data['bith'],
+            'gender_id' => implode(',',$data['gender_id']),
+            'country_id' => $data['country_id'],
             'password' => Hash::make($data['password']),
         ]);
     }

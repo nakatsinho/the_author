@@ -12,9 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('home');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('step2','RegisterStep2Controller');
+
+Route::resource('profile','ProfileController');

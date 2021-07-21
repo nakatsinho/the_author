@@ -24,6 +24,10 @@
                                 <input class="input-field" type="text" placeholder="Complete Name (Name & Surname)" name="name">
                             </div>
                             <div class="input-container">
+                                <p>Select Date</p>
+                                <input class="input-field form-control" type="date" placeholder="Birthday Date" name="bith">
+                            </div>
+                            <div class="input-container">
                                 <p>Select Gender</p>
 
                                 @foreach($gender as $id=>$value)
@@ -52,7 +56,15 @@
 
                             <div class="input-container">
                                 <input class="input-field" type="password" placeholder="Password" name="password">
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
 
+                            <div class="input-container">
+                                <input id="password-confirm" placeholder="Re-type Password" type="password" class="input-field" name="password_confirmation" required autocomplete="new-password">
                             </div>
 
                             <button type="submit" class="btn">Next</button>
@@ -65,19 +77,13 @@
                     <div class="p-left col-md-8 footermenu">
                         <ul>
                             <li><a href="#">About </a></li>
-                            <li><a href="#">Faq’s</a></li>
                             <li><a href="#"> Privacy policy</a></li>
-                            <li><a href="#">Advertise</a></li>
-                            <li><a href="#">career</a></li>
                             <li><a href="#">Term and conditions </a></li>
-                            <li><a href="#">Press</a></li>
                             <li><a href="#">Sitemap</a></li>
-                            <li><a href="#">Tags</a></li>
-                            <li><a href="#">Blogs</a></li>
                         </ul>
                     </div>
                     <div class="p-left col-md-4 copyrightsign text-right">
-                        <a target="_blank" href="https://www.templateshub.net">Templates Hub</a>
+                        <a target="_blank" href="https:wa.me/+258825248888">Kelton Cumbe</a>
                     </div>
                 </div>
             </div>

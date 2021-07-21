@@ -2,70 +2,68 @@
 
 @section('auth')
 <div class="sign">
-		<div class="container">
-			<div class="row">
-				<div class="bg-form">
-					<div class="sinheader">
-						<div class="col-md-6">
-							<img src="images/header/logo.png" alt="">
-						</div>
-						<div class="sings col-md-6">
-							<a href="signup.html">Sign up here</a> &nbsp;
-							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						</div>
-						<div class="clearfix">
-						</div>
-						<div class="sform">
-							<h1>Sign Up</h1>
-							<span>Hello there! Sign up and start managing your item.</span>
-							<form class="sinup" action="#">
-								<div class="signprofile">
-									<img src="images/profile/profile.png" alt="">
-									<div class="sinup-img">
-									<a href="#">	
+	<div class="container">
+		<div class="row">
+			<div class="bg-form">
+				<div class="sinheader">
+					<div class="col-md-6">
+						<img src="images/header/logo.png" alt="">
+					</div>
+					<div class="sings col-md-6">
+					</div>
+					<div class="clearfix">
+					</div>
+					<div class="sform">
+						<h1>Sign Up</h1>
+						<span>Hello there! Sign up and start managing your item.</span>
+						<form class="sinup" action="{{ route('step2.update',Auth::user()->id) }}" enctype="multipart/form-data" method="POST">
+							@method('PUT')
+							@csrf
+							<div class="signprofile">
+								<img src="images/profile/profile.png" alt="">
+								<div class="sinup-img">
+									<a href="#">
 										<img src="images/profile/editicon.png" alt="">
 									</a>
-									</div>
 								</div>
-								
-								<div class="profilename">
-									John Doe
-									<p>Pages with profile pictures show up higher in search result.</p>
-								</div>
-								<div class="addpic" id="OpenImgUpload">
-									<button class="addborder">Add a Profile Picture</button>
-									<input type="file" name="myfile">
-									<p>A square photo or logo works well here</p>
-								</div>
-								<a href="signupnext.html" class="black">back</a>
-								<a href="singupcover.html" class="btn">Next</a>
-							</form>
+							</div>
 
-						</div>
+							<div class="profilename">
+								{{Auth::user()->name}}
+								<p>Pages with profile pictures show up higher in search result.</p>
+							</div>
+							<div class="addpic" id="OpenImgUpload">
+								<button class="addborder" >Add a Profile Picture</button>
+								<input type="file" name="image">
+								<p>A square photo or logo works well here</p>
+							</div>
+							<div class="input-container">
+                                <input class="input-field" type="text" placeholder="Input your personal phone number" name="number">
+
+                            </div>
+							<a href="{{ route('home') }}" class="black">Skip step for now</a>
+							<button type="submit" class="btn">Finish</button>
+						</form>
+
 					</div>
-					<div class="footer-sign">
-						<div class="p-left col-md-8 footermenu">
-							<ul>
-								<li><a href="#">About  </a></li>
-								<li><a href="#">Faq’s</a></li>
-								<li><a href="#"> Privacy policy</a></li>
-								<li><a href="#">Advertise</a></li>
-								<li><a href="#">career</a></li>
-								<li><a href="#">Term and conditions </a></li>
-								<li><a href="#">Press</a></li>
-								<li><a href="#">Sitemap</a></li>
-								<li><a href="#">Tags</a></li>
-								<li><a href="#">Blogs</a></li>
-							</ul>
-						</div>
-						<div class="p-left col-md-4 copyrightsign text-right">
-							<a target="_blank" href="https://www.templateshub.net">Templates Hub</a>
-						</div>
+				</div>
+				<div class="footer-sign">
+					<div class="p-left col-md-8 footermenu">
+						<ul>
+							<li><a href="#">About </a></li>
+							<li><a href="#"> Privacy policy</a></li>
+							<li><a href="#">Term and conditions </a></li>
+							<li><a href="#">Sitemap</a></li>
+						</ul>
+					</div>
+					<div class="p-left col-md-4 copyrightsign text-right">
+						<a target="_blank" href="https:wa.me/+258825248888">Kelton Cumbe</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 <!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
