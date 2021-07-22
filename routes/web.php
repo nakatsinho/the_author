@@ -12,10 +12,15 @@
 */
 
 use Author\Models\Category;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     $caty = Category::all();
-    return view('home',compact('caty'));
+    if(Auth::user())
+    {
+        return view('home',compact('caty'));
+    }
+    return redirect()->route('login');
 });
 
 Auth::routes();
@@ -25,3 +30,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('step2','RegisterStep2Controller');
 
 Route::resource('profile','ProfileController');
+
+Route::resource('books','BookController');
+
+Route::get('/search%books', 'SearchController@getBook')->name('search.books');
+
+Route::get('/search%authors', 'SearchController@getAuthor')->name('search.authors');
+
+
+

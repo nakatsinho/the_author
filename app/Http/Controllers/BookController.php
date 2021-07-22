@@ -2,8 +2,12 @@
 
 namespace Author\Http\Controllers;
 
+use Author\Models\Author;
 use Author\Models\Book;
+use Author\Models\Category;
+use Author\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
@@ -14,7 +18,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::findOrFail(Auth::user()->id);
+        $book = Book::leftJoin('authors','books.id','=','authors.book_id')->where('authors.user_id',Auth::user()->id)->get();
+        return view('books.index',compact('book','user'));
     }
 
     /**
@@ -24,7 +30,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        $caty = Category::pluck('name','id');
+        return view('books.create',compact('caty'));
     }
 
     /**
@@ -35,7 +42,25 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formInput = $request->except('cover','user_id');
+        $user = Auth::user()->id;
+        $image = $request->cover;
+
+        if(!empty($image))
+        {
+            $imageName = $image->getClientOriginalName();
+            $image->move('images/books', $imageName);
+        }
+        $formInput['cover'] = $imageName;
+
+        $book = Book::create($formInput);
+
+        Author::create([
+            'user_id' => $user,
+            'book_id' => $book->id
+        ]);
+
+        return redirect()->route('books.index');
     }
 
     /**
@@ -44,9 +69,11 @@ class BookController extends Controller
      * @param  \Author\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show(Book $book)
+    public function show($id)
     {
-        //
+        $book = Book::findOrFail($id);
+        $author = User::leftJoin('authors','users.id','=','authors.user_id')->where('authors.book_id',$book->id)->get();
+        return view('books.show',compact('book','author'));
     }
 
     /**

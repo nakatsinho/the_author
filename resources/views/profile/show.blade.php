@@ -5,7 +5,7 @@
 				<!-- Banner -->
 				<div class="row">
 					<div class="messages text-center col-md-12">
-						Setting
+						Setting Profile of {{$user->name}}
 						<hr>
 					</div>
 				</div>
@@ -20,13 +20,6 @@
 								<li>
 									<a href="#">OverView </a>
 								</li>
-								<li>
-									<a href="#">Privacy </a>
-								</li>
-								<li>
-									<a href="#">Notification </a>
-								</li>
-
 							</ul>
 
 						</div>
@@ -84,22 +77,8 @@
 						<div class="box-left">
 							<div class="rightboxs">
 								<i class="fa fa-globe" aria-hidden="true"></i>
-								<span>Website</span>
+								<span>Books</span>
 								<p>{{$user->website}}</p>
-							</div>
-						</div>
-						<div class="box-left">
-							<div class="rightboxs">
-								<img src="images/banner/Icon9.png" alt="">
-								<span>Follow Me</span>
-								<p>
-									<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-									<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-									<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-									<a href="#"><i class="fa fa-google" aria-hidden="true"></i></a>
-									<a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-									<a href="#"><i class="fa fa-lastfm-square" aria-hidden="true"></i></a>
-								</p>
 							</div>
 						</div>
 						<div class="box-left">

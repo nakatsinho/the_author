@@ -4,8 +4,11 @@
 					<div class="fos" id="foo">Home</div>
 				</a>
 			</li>
-			<li><a href="#"><img src="images/menu-icon/Categoryicon.png" title="" alt="">
-					<div class="fos" id="foo1"> Reading </div>
+			<li><a href="{{ route('books.create') }}"><img src="images/menu-icon/Categoryicon.png" title="" alt="">
+					<div class="fos" id="foo1"> Adding Book </div>
+				</a></li>
+			<li><a href="{{ route('books.index') }}"><img src="images/menu-icon/Categoryicon.png" title="" alt="">
+					<div class="fos" id="foo1"> My Books </div>
 				</a></li>
 			<li><a href="{{ route('profile.index') }}"><img src="images/menu-icon/flag.png" title="" alt="">
 					<div class="fos" id="foo2">Find Profiles</div>
