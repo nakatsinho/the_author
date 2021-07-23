@@ -2,8 +2,12 @@
 
 namespace Author\Http\Controllers;
 
+use Author\Models\Author;
+use Author\Models\Book;
 use Author\Models\Sharing;
+use Author\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SharingController extends Controller
 {
@@ -14,7 +18,10 @@ class SharingController extends Controller
      */
     public function index()
     {
-        //
+        $book = Sharing::leftJoin('books','books.id','=','sharings.book_id')
+        ->where('sharings.user_id',Auth::user()->id)
+        ->get();
+        return view('sharing.index',compact('book'));
     }
 
     /**
@@ -24,7 +31,9 @@ class SharingController extends Controller
      */
     public function create()
     {
-        //
+        $user = User::pluck('name','id')->except(Auth::user()->id);
+        $book = Book::pluck('name','id');
+        return view('sharing.create',compact('user','book'));
     }
 
     /**
@@ -35,7 +44,10 @@ class SharingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formInput = $request->except('user_id');
+        $formInput['user_id'] = Auth::user()->id;
+        Sharing::create($formInput);
+        return redirect()->route('sharing.index');
     }
 
     /**
@@ -67,9 +79,12 @@ class SharingController extends Controller
      * @param  \Author\Models\Sharing  $sharing
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sharing $sharing)
+    public function update(Request $request, $id)
     {
-        //
+        $formInput = $request->except('user_id');
+        $formInput['user_id'] = Auth::user()->id;
+        Author::create($formInput);
+        return redirect()->back();
     }
 
     /**

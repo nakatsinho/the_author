@@ -10,15 +10,12 @@
 			<li><a href="{{ route('books.index') }}"><img src="images/menu-icon/Categoryicon.png" title="" alt="">
 					<div class="fos" id="foo1"> My Books </div>
 				</a></li>
-			<li><a href="{{ route('profile.index') }}"><img src="images/menu-icon/flag.png" title="" alt="">
+			<li><a href="{{ route('profile.create') }}"><img src="images/menu-icon/flag.png" title="" alt="">
 					<div class="fos" id="foo2">Find Profiles</div>
 				</a></li>
-			<li class="mpadding"><a href="#"><img src="images/menu-icon/message.png" title="" alt="">
-					<div class="fos" id="foo3"> Messages</div>
-				</a></li>
 
-			<li> <a href="#"><img src="images/menu-icon/info.png" title="" alt="">
-					<div class="fos" id="foo8">Help</div>
+			<li> <a href="{{ route('sharing.index')}}"><img src="images/menu-icon/info.png" title="" alt="">
+					<div class="fos" id="foo8">Shared Books</div>
 				</a></li>
 			<li> <a href="#"><img src="images/menu-icon/setting.png" title="" alt="">
 					<div class="fos" id="foo9">Setting</div>

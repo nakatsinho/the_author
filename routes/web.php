@@ -33,6 +33,8 @@ Route::resource('profile','ProfileController');
 
 Route::resource('books','BookController');
 
+Route::resource('sharing','SharingController');
+
 Route::get('/search%books', 'SearchController@getBook')->name('search.books');
 
 Route::get('/search%authors', 'SearchController@getAuthor')->name('search.authors');

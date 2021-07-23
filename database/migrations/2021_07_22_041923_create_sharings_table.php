@@ -16,6 +16,7 @@ class CreateSharingsTable extends Migration
         Schema::create('sharings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id')->nullable();
+            $table->integer('shared__id')->nullable();
             $table->integer('book_id')->nullable();
             $table->timestamps();
         });

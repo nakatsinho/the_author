@@ -21,6 +21,11 @@
 		</div>
 	</div>
 	<div class="col-md-5 col-xs-12 p-left p-right">
+		<div class="add-listing">
+			<a href="{{ route('sharing.create') }}">
+				<img src="images/header/plus-ico.png" alt="">
+				Share a Book</a>
+		</div>
 		<div class="home">
 			<ul>
 				<li>
@@ -33,7 +38,7 @@
 		<!--#Home-->
 		<div class="login popup" onclick="signin()">
 
-			<img src="images/header/u-icon.png" title="" alt="">
+			<img src="{{ url('images/profile/',Auth::user()->image) }}" title="" alt="">
 			{{Auth::user()->name}}
 			<div class="popuptext1" id="signin">
 				<div class="notfication-details">
@@ -43,14 +48,14 @@
 				</div>
 				<div class="notfication-details">
 					<div class="notification-info">
-					<a class="logout" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault(); 
+						<a class="logout" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault(); 
           document.getElementById('logout-form').submit();">
-                                        <i class="fa fa-power"></i> Sign Out
-                                    </a>
+							<i class="fa fa-power"></i> Sign Out
+						</a>
 
-                                    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
-                                        <?php echo csrf_field(); ?>
-                                    </form>
+						<form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+							<?php echo csrf_field(); ?>
+						</form>
 					</div>
 					<!--notification-info -->
 				</div>

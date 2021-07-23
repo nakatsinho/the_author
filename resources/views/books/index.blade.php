@@ -9,25 +9,20 @@
         </div>
         <div class="main-page">
             <div class=" dash-profile">
-                <img src="images/banner/01_cdp.jpg" alt="">
+                <img src="{{ url('images/profile/',$user->image) }}" width="90%" alt="">
             </div>
             <div class="prompr">
                 <ul class="pull-right prof">
                     <li class="number"><i class="fa fa-phone" aria-hidden="true"></i> &nbsp; +{{$user->number}}
                         890</li>
                     <li class="number"><i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp; {{$user->country->name}}
-                        </li>
+                    </li>
 
                     <li class="borders"><i class="fa fa-share-alt" aria-hidden="true"></i></li>
                 </ul>
                 <div class="dashname">
-                   {{$user->name}}
+                    {{$user->name}}
                     <p>{{$user->email}}</p>
-                </div>
-                <div class="likeds">
-                    <div class="likeright">
-                        <a href="#">edit</a>
-                    </div>
                 </div>
 
             </div>
@@ -60,7 +55,8 @@
             <div class="col-md-3 col-xs-12 ">
                 <div class="box">
                     <div class="box-img">
-                        <img src="images/place/24_img.jpg" class="img" alt="" title="">
+                        <a href="{{ route('books.show',$value->id) }}"> <img src="{{ url('images/books/',$value->cover) }}" class="img" alt="" title="">
+                        </a>
                     </div>
                     <div class="box-heading1">
                         {{$value->name}}

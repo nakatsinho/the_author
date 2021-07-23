@@ -49,4 +49,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Country::class);
     }
+
+    public function gender()
+    {
+        return $this->belongsTo(Gender::class);
+    }
 }

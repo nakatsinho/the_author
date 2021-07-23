@@ -5,11 +5,17 @@
 			<!-- Banner -->
 			<div class="row">
 				<div class="messages text-center col-md-12">
-					Find Authors between "{{ Request::input('queryAuthor') }}"
+					Find Profiles
 					<hr>
 				</div>
 				<div class="left_side">
-					@foreach($authors as $value)
+					<div class="search-main">
+						<form action="{{ route('search.authors') }}"> 
+							<button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+							<input type="text" name="queryAuthor" placeholder="Enter a keyword....">
+						</form>
+					</div>
+					@foreach($users as $value)
                     <div class="col-md-3 col-xs-12 col-sm-6 p-left">
 						<div class="mainbox">
 							<div class="imgbox">
@@ -22,7 +28,7 @@
 								<p>{{$value->email}}</p>
 							</div>
 							<div class="righttext">
-								<a href="{{ route('profile.show',$value->id) }}"> Profile</a>
+								<a href="{{ route('profile.show',$value->id) }}">Profile</a>
 							</div>
 							<div class="clearfix"></div>
 						</div>

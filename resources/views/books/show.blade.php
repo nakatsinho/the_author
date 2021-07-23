@@ -25,13 +25,18 @@
                     </div>
                     <div class="liked1">
                         <div class="lokeda">
-                            <?php $be_author = DB::table('authors')->where('book_id',$book->id)->get(); ?>
+                            <?php $be_author = DB::table('authors')->where('book_id', $book->id)->get(); ?>
                             @foreach($be_author as $val)
-                                @if(!$val->user_id == Auth::user()->id)
-                                <button class="btn btn-success" href="#">Become Author</button>
-                                @else
-                                <button class="btn btn-success" disabled>Your are Author</button>
-                                @endif
+                            @if($val->user_id == Auth::user()->id)
+                            <button class="btn btn-success" disabled>Your are Author</button>
+                            @else
+                            <form action="{{ route('sharing.update', $val->id) }}" method="post">
+                                @method('PUT')
+                                @csrf
+                                <input type="text" name="book_id" value="{{$val->id}}" hidden>
+                                <button class="btn btn-success" type="submit">Become Author</button>
+                            </form>
+                            @endif
                             @endforeach
                         </div>
                     </div>
@@ -79,7 +84,7 @@
                     <div class="rightboxs">
                         <span>Authors List</span>
                         @foreach($author as $value3)
-                        <p><a href="#">{{$value3->name}}</a></p>
+                        <p><a href="{{ route('profile.show',$value3->id ) }}">{{$value3->name}}</a></p>
                         @endforeach
                     </div>
                 </div>

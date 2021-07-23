@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sharing extends Model
 {
-    //
+    protected $fillable = [
+        'shared_id',
+        'user_id',
+        'book_id'
+    ];
 }

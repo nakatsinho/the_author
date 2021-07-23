@@ -5,10 +5,10 @@
     <!-- Banner -->
     <div class="row leftside">
         <div class="messages text-center col-md-12">
-            All Categories
+            All Shared Books
             <hr>
         </div>
-        @foreach($caty as $value)
+        @forelse($book as $value)
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="listing">
                 <h3>{{$value->name}}
@@ -23,9 +23,12 @@
                         </ul>
             </div>
         </div>
-        @endforeach
+        @empty
+        <div>
+            <p class="text-center">No Shared Books Yet</p>
+        </div>
+        @endforelse
         <div class="clearfix"></div>
     </div>
 </div>
-<!-- /.content-wrapper -->
 @endsection

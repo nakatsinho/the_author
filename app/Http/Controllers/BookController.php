@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +23,7 @@ class BookController extends Controller
     public function index()
     {
         $user = User::findOrFail(Auth::user()->id);
-        $book = Book::leftJoin('authors','books.id','=','authors.book_id')->where('authors.user_id',Auth::user()->id)->get();
+        $book = Author::leftJoin('books','books.id','=','authors.book_id')->where('authors.user_id',Auth::user()->id)->get();
         return view('books.index',compact('book','user'));
     }
 
@@ -72,7 +76,9 @@ class BookController extends Controller
     public function show($id)
     {
         $book = Book::findOrFail($id);
-        $author = User::leftJoin('authors','users.id','=','authors.user_id')->where('authors.book_id',$book->id)->get();
+        $author = Author::leftJoin('users','users.id','=','authors.user_id')
+                        ->where('authors.book_id',$book->id)
+                        ->get();
         return view('books.show',compact('book','author'));
     }
 
