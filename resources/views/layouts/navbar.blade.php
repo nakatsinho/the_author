@@ -7,7 +7,7 @@
 		</button>
 		<div class="logo">
 			<a href="#">
-				<img src="images/header/logo.png" alt="logo">
+				<img src="images/header/logo.pn" alt="The Author"> 
 			</a>
 		</div>
 	</div>

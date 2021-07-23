@@ -5,6 +5,7 @@ namespace Author\Http\Controllers;
 use Author\Models\Author;
 use Author\Models\Book;
 use Author\Models\Category;
+use Author\Models\Sharing;
 use Author\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -111,8 +112,11 @@ class BookController extends Controller
      * @param  \Author\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Book $book)
+    public function destroy($id)
     {
-        //
+        $book = Book::findOrFail($id)->delete();
+        Sharing::where('book_id',$id)->delete();
+        Author::where('book_id',$id)->delete();
+          return redirect()->route('books.index');
     }
 }

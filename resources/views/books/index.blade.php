@@ -66,10 +66,15 @@
                     </div>
 
                     <div class="box-radius">
-                        <img src="images/homepage/latest/01_dp.png" class="img" alt="" title="">
+                        <img src="{{url('images/homepage/latest/01_dp.png')}}" class="img" alt="" title="">
                     </div>
                     <div class="box-heading3">
-                        {{$value->company}} <i class="fa pull-right fa-heart-o" aria-hidden="true"></i>
+                        {{$value->company}}
+                        <form action="{{ route('books.destroy',$value->id) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button class="btn btn-danger pull-right" type="submit">Delete</button>
+                        </form>
                     </div>
                 </div>
             </div>

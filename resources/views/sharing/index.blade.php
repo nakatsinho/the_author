@@ -14,12 +14,9 @@
                 <h3>{{$value->name}}
                     <h3>
                         <ul>
-                            <?php $book = DB::table('books')->where('category_id', $value->id)->limit(10)->get() ?>
-                            @forelse($book as $value2)
-                            <li><a href="{{ route('books.show',$value2->id) }}">{{$value2->name}}</a></li>
-                            @empty
-                            <li><a href="#">No Books Added Yet</a></li>
-                            @endforelse
+                            <li><a href="{{ route('profile.show',$value->user_id) }}">Shared by {{$value->user->name}}</a></li>
+                            <li>Edition: {{$value->edition}}</li>
+                            <li>Company: {{$value->company}}</li>
                         </ul>
             </div>
         </div>
